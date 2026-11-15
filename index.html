@@ -24,11 +24,13 @@ h2::before{content:"";width:8px;height:8px;border-radius:50%;background:currentC
 .p0 .item{border-left:3px solid var(--hi)}.p1 .item{border-left:3px solid var(--mid)}.p2 .item{border-left:3px solid var(--lo)}
 .name{font-weight:600;font-size:16px}
 .price{font-weight:600;white-space:nowrap;text-align:right}
+.qty{grid-column:1;font-size:12px;font-weight:600;justify-self:start;border-radius:6px;padding:2px 8px;border:1px solid var(--line);color:var(--muted)}
+.qty.multi{color:var(--hi);border-color:var(--hi)}
 .price.open{color:var(--muted);font-weight:400;font-size:14px}
 .desc{color:var(--muted);font-size:14px;grid-column:1}
 .note{font-size:13px;color:var(--text);grid-column:1;opacity:.85}
 .note b{color:var(--hi);font-weight:600}
-a.btn{grid-column:2;grid-row:2/span 2;align-self:end;justify-self:end;text-decoration:none;color:var(--bg);background:var(--text);border-radius:8px;padding:8px 12px;font-size:13px;font-weight:600;white-space:nowrap}
+a.btn{grid-column:2;grid-row:2/span 3;align-self:end;justify-self:end;text-decoration:none;color:var(--bg);background:var(--text);border-radius:8px;padding:8px 12px;font-size:13px;font-weight:600;white-space:nowrap}
 a.btn:hover{background:#fff}
 footer{color:var(--muted);font-size:12px;text-align:center;margin-top:40px}
 @media(max-width:480px){.item{grid-template-columns:1fr}.price{text-align:left}a.btn{grid-column:1;grid-row:auto;justify-self:start;margin-top:6px}}
@@ -52,13 +54,13 @@ const items=[
 {p:0,name:"Rode PodMic USB",desc:"Dynamisches Streaming-Mikrofon mit USB-C und XLR.",note:"Farbe: <b>Schwarz</b>",price:null,url:"https://amzn.eu/d/0byK9YP7",shop:"Amazon"},
 {p:0,name:"Rode PSA1+ Mikrofonarm",desc:"Schwenkarm für den Schreibtisch, passend zum PodMic.",note:"Farbe: <b>Schwarz</b>",price:null,url:"https://amzn.eu/d/0aDsBw8U",shop:"Amazon"},
 {p:0,name:"Luxafor Busylight",desc:"USB-Statuslicht, das leuchtet, wenn Claude Code auf Eingabe wartet.",price:null,url:"https://luxafor.de/products/busylight?variant=50298182205786",shop:"Luxafor"},
-{p:0,name:"Therme Erding – Gutschein mit Sauna",desc:"Für die Therme mit Saunawelt.",note:"Wichtig: Ticket <b>inkl. VitalTherme &amp; Saunen</b> (textilfreier Bereich), nicht das normale Thermen-Ticket.",price:null,url:"https://www.headout.com/de/therme-erding/therme-erding-tickets-fur-die-therme-und-die-saunas-e-23310",shop:"Headout"},
+{multi:true,p:0,name:"Therme Erding – Gutschein mit Sauna",desc:"Für die Therme mit Saunawelt.",note:"Wichtig: Ticket <b>inkl. VitalTherme &amp; Saunen</b> (textilfreier Bereich), nicht das normale Thermen-Ticket.",price:null,url:"https://www.headout.com/de/therme-erding/therme-erding-tickets-fur-die-therme-und-die-saunas-e-23310",shop:"Headout"},
 {p:1,name:"Pinecil V2",desc:"Kleiner USB-C-Lötkolben fürs Basteln, in Sekunden heiß.",note:"Nur das Original kaufen, kein AliExpress.",price:40,approx:true,url:"https://botland.store/lutownice-kolbowe/25835-pinecil-v2-inteligentna-przenosna-mini-lutownica-oled-risc-v-pine64--850796007840.html",shop:"Botland"},
 {p:1,name:"Anker Nano 65W Ladegerät (3-Port)",desc:"Netzteil für den Pinecil, lädt auch Handy und Laptop.",note:"Farbe: <b>Schwarz</b>",price:24.47,url:"https://amzn.eu/d/0iAYZGst",shop:"Amazon"},
 {p:1,name:"Gymreapers Quick Lock Belt",desc:"Gewichthebergürtel für Kniebeugen und Kreuzheben.",note:"Farbe: <b>Schwarz</b> · Größe wird noch nachgereicht",price:31.95,url:"https://de.gymreapers.com/products/quick-locking-belt-black-black",shop:"Gymreapers"},
 {p:1,name:"Gymreapers Wrist Wraps 18\"",desc:"Handgelenkbandagen für Bank- und Schulterdrücken.",note:"Farbe: <b>Schwarz</b> · gleicher Shop wie der Gürtel",price:17.95,url:"https://de.gymreapers.com/products/wrist-wraps",shop:"Gymreapers"},
-{p:1,name:"ESN Iso Whey Protein Isolat, 908 g",desc:"Proteinpulver (Isolat), 30 Shakes.",note:"Sorte: <b>Milk Chocolate</b> · mit Code <b>ESN</b> 22 % günstiger",price:57.90,url:"https://www.esn.com/products/esn-iso-whey-protein?variant=47947636310331&mm_rf=mm_52be226198890b2b55f8",shop:"ESN"},
-{p:1,name:"ESN Crank Ultimate, 360 g",desc:"Pre-Workout-Booster mit Koffein für schwere Gym-Tage.",note:"Sorte: <b>Blue Raspberry</b> · mit Code <b>ESN</b> 22 % günstiger",price:39.90,url:"https://www.esn.com/products/crank-ultimate?variant=53706507092236&mm_rf=mm_52be226198890b2b55f8",shop:"ESN"},
+{multi:true,p:1,name:"ESN Iso Whey Protein Isolat, 908 g",desc:"Proteinpulver (Isolat), 30 Shakes.",note:"Sorte: <b>Milk Chocolate</b> · mit Code <b>ESN</b> 22 % günstiger",price:57.90,url:"https://www.esn.com/products/esn-iso-whey-protein?variant=47947636310331&mm_rf=mm_52be226198890b2b55f8",shop:"ESN"},
+{multi:true,p:1,name:"ESN Crank Ultimate, 360 g",desc:"Pre-Workout-Booster mit Koffein für schwere Gym-Tage.",note:"Sorte: <b>Blue Raspberry</b> · mit Code <b>ESN</b> 22 % günstiger",price:39.90,url:"https://www.esn.com/products/crank-ultimate?variant=53706507092236&mm_rf=mm_52be226198890b2b55f8",shop:"ESN"},
 {p:2,name:"Flipper Zero",desc:"Multitool für Funk, NFC, RFID und Infrarot.",price:179.00,url:"https://flipper.net/products/flipper-zero",shop:"Flipper Shop"}
 ];
 const labels=["Wichtig","Neutral","Nicht so wichtig"];
@@ -72,6 +74,7 @@ labels.forEach((label,p)=>{
   <div class="item">
     <div class="name">${esc(i.name)}</div>
     <div class="price${i.price==null?" open":""}">${i.price==null?"Preis im Shop":(i.approx?"ca. ":"")+eur(i.price)}</div>
+    <div class="qty${i.multi?" multi":""}">${i.multi?"Mehrfach schenkbar":"1×"}</div>
     <div class="desc">${esc(i.desc)}</div>
     ${i.note?`<div class="note">${i.note}</div>`:""}
     <a class="btn" href="${esc(i.url)}" target="_blank" rel="noopener">${esc(i.shop)} ↗</a>
