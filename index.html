@@ -78,11 +78,9 @@ labels.forEach((label,p)=>{
   </div>`).join("");
   list.appendChild(sec);
 });
-const known=items.filter(i=>i.price!=null).reduce((a,i)=>a+i.price,0);
 document.getElementById("stats").innerHTML=
  `<div class="stat"><b>${items.length}</b> Wünsche</div>`+
- `<div class="stat"><b>${items.filter(i=>i.p===0).length}</b> wichtig</div>`+
- `<div class="stat">ab <b>${eur(known)}</b> (bekannte Preise)</div>`;
+ `<div class="stat"><b>${items.filter(i=>i.p===0).length}</b> wichtig</div>`;
 </script>
 </body>
 </html>
