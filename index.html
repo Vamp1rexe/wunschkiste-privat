@@ -23,6 +23,7 @@ h2::before{content:"";width:8px;height:8px;border-radius:50%;background:currentC
 .item{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px;margin-bottom:10px;display:grid;grid-template-columns:1fr auto;gap:6px 16px;align-items:start}
 .p0 .item{border-left:3px solid var(--hi)}.p1 .item{border-left:3px solid var(--mid)}.p2 .item{border-left:3px solid var(--lo)}
 .name{font-weight:600;font-size:16px}
+.pic{grid-column:1/-1;width:100%;max-height:220px;object-fit:contain;background:#fff;border-radius:8px;padding:8px}
 .price{font-weight:600;white-space:nowrap;text-align:right}
 .qty{grid-column:1;font-size:12px;font-weight:600;justify-self:start;border-radius:6px;padding:2px 8px;border:1px solid var(--line);color:var(--muted)}
 .qty.multi{color:var(--hi);border-color:var(--hi)}
@@ -54,6 +55,7 @@ const items=[
 {p:0,name:"Rode PodMic USB",desc:"Dynamisches Streaming-Mikrofon mit USB-C und XLR.",note:"Farbe: <b>Schwarz</b>",price:null,url:"https://amzn.eu/d/0byK9YP7",shop:"Amazon"},
 {p:0,name:"Rode PSA1+ Mikrofonarm",desc:"Schwenkarm für den Schreibtisch, passend zum PodMic.",note:"Farbe: <b>Schwarz</b>",price:null,url:"https://amzn.eu/d/0aDsBw8U",shop:"Amazon"},
 {p:0,name:"Luxafor Busylight",desc:"USB-Statuslicht, das leuchtet, wenn Claude Code auf Eingabe wartet.",price:null,url:"https://luxafor.de/products/busylight?variant=50298182205786",shop:"Luxafor"},
+{p:0,name:"Philips OneBlade 360 Face + Body (QP2834/31)",desc:"Wasserdichter Rasierer und Trimmer für Gesicht und Körper, auch unter der Dusche.",note:"Set mit <b>3 Klingen</b> und 4 Trimmaufsätzen",price:51.99,url:"https://amzn.eu/d/0b1pxpuZ",shop:"Amazon",img:"img/oneblade.jpg"},
 {multi:true,p:0,name:"Therme Erding – Gutschein mit Sauna",desc:"Für die Therme mit Saunawelt.",note:"Wichtig: Ticket <b>inkl. VitalTherme &amp; Saunen</b> (textilfreier Bereich), nicht das normale Thermen-Ticket.",price:null,url:"https://www.headout.com/de/therme-erding/therme-erding-tickets-fur-die-therme-und-die-saunas-e-23310",shop:"Headout"},
 {p:1,name:"Pinecil V2",desc:"Kleiner USB-C-Lötkolben fürs Basteln, in Sekunden heiß.",note:"Nur das Original kaufen, kein AliExpress.",price:40,approx:true,url:"https://botland.store/lutownice-kolbowe/25835-pinecil-v2-inteligentna-przenosna-mini-lutownica-oled-risc-v-pine64--850796007840.html",shop:"Botland"},
 {p:1,name:"Anker Nano 65W Ladegerät (3-Port)",desc:"Netzteil für den Pinecil, lädt auch Handy und Laptop.",note:"Farbe: <b>Schwarz</b>",price:24.47,url:"https://amzn.eu/d/0iAYZGst",shop:"Amazon"},
@@ -72,6 +74,7 @@ labels.forEach((label,p)=>{
   const sec=document.createElement("section"); sec.className="p"+p;
   sec.innerHTML=`<h2>${label} · ${g.length}</h2>`+g.map(i=>`
   <div class="item">
+    ${i.img?`<img class="pic" src="${esc(i.img)}" alt="${esc(i.name)}" loading="lazy">`:""}
     <div class="name">${esc(i.name)}</div>
     <div class="price${i.price==null?" open":""}">${i.price==null?"Preis im Shop":(i.approx?"ca. ":"")+eur(i.price)}</div>
     <div class="qty${i.multi?" multi":""}">${i.multi?"Mehrfach schenkbar":"1×"}</div>
