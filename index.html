@@ -54,7 +54,7 @@ const items=[
 {p:0,name:"Rode PodMic USB",img:"https://edge.rode.com//images/page/2124/rode-podmic-usb-packaging-insitu-8192x5464-rgb-1200x630-59bed4d.jpg",desc:"Dynamisches Streaming-Mikrofon mit USB-C und XLR.",note:"Farbe: <b>Schwarz</b>",price:177.0,url:"https://amzn.eu/d/0byK9YP7",shop:"Amazon"},
 {p:0,name:"Rode PSA1+ Mikrofonarm",img:"https://edge.rode.com//images/page/357/R%C3%98DE-PSA1+-INSITU-HOME-WEBHEADER-1200x630-rgb.jpg",desc:"Schwenkarm für den Schreibtisch, passend zum PodMic.",note:"Farbe: <b>Schwarz</b>",price:99.0,url:"https://amzn.eu/d/0aDsBw8U",shop:"Amazon"},
 {p:0,name:"Luxafor FLAG 2 Busylight",img:"https://luxafor.de/cdn/shop/products/Luxafor-Flag-Busylight-sort-lyser-roedt-paa-computer.jpg?v=1736750479&width=800",desc:"USB-Statuslicht, das leuchtet, wenn Claude Code auf Eingabe wartet.",price:40.95,url:"https://luxafor.de/products/busylight?variant=50298182205786",shop:"Luxafor"},
-{multi:true,p:0,name:"Therme Erding – Gutschein mit Sauna",img:"https://cdn-imgix.headout.com/media/images/e29202f86c5fd75ff472f110e2c89b22-233094.jpg?auto=compress&w=768&h=480&fit=min",desc:"Für die Therme mit Saunawelt.",note:"Wichtig: Ticket <b>inkl. VitalTherme &amp; Saunen</b> (textilfreier Bereich), nicht das normale Thermen-Ticket.",price:null,url:"https://www.headout.com/de/therme-erding/therme-erding-tickets-fur-die-therme-und-die-saunas-e-23310",shop:"Headout"},
+{multi:true,p:0,name:"Therme Erding – Gutschein mit Sauna",img:"https://cdn-imgix.headout.com/media/images/e29202f86c5fd75ff472f110e2c89b22-233094.jpg?auto=compress&w=768&h=480&fit=min",desc:"Für die Therme mit Saunawelt.",note:"Wichtig: Ticket <b>inkl. VitalTherme &amp; Saunen</b> (textilfreier Bereich), nicht das normale Thermen-Ticket.",price:null,priceText:"Betrag frei wählbar",url:"https://www.headout.com/de/therme-erding/therme-erding-tickets-fur-die-therme-und-die-saunas-e-23310",shop:"Headout"},
 {p:1,name:"Anker Nano 45W Smart Charger",img:"https://cdn.shopify.com/s/files/1/0493/9834/9974/files/Group_2121236309_77952e43-e3b0-4fc6-9a95-65e7546da92b.png?v=1767609604",desc:"Zweites Handy-Ladegerät mit kleinem Display.",note:"Farbe: <b>Blau</b> oder <b>Schwarz</b>",price:25.99,url:"https://amzn.eu/d/00BZVHrQ",shop:"Amazon"},
 {p:1,name:"Philips OneBlade 360 Face + Body (QP2834/31)",desc:"Wasserdichter Rasierer und Trimmer für Gesicht und Körper, auch unter der Dusche.",note:"Set mit <b>3 Klingen</b> und 4 Trimmaufsätzen",price:51.99,url:"https://amzn.eu/d/0b1pxpuZ",shop:"Amazon",img:"img/oneblade.jpg"},
 {multi:true,p:1,name:"Ersatzklingen für OneBlade (3er-Pack)",desc:"3 Ersatzklingen für den OneBlade 360, für Gesicht und Körper.",note:"Nachbau von Guettsy, nicht Original-Philips",price:27.99,url:"https://amzn.eu/d/0anlcbmI",shop:"Amazon",img:"img/oneblade-klingen.jpg"},
@@ -77,7 +77,7 @@ labels.forEach((label,p)=>{
   <div class="item">
     ${i.img?`<img class="pic" src="${esc(i.img)}" alt="${esc(i.name)}" loading="lazy" referrerpolicy="no-referrer" onerror="this.remove()">`:""}
     <div class="name">${esc(i.name)}</div>
-    <div class="price${i.price==null?" open":""}">${i.price==null?"Preis im Shop":(i.approx?"ca. ":"")+eur(i.price)}</div>
+    <div class="price${i.price==null?" open":""}">${i.price==null?(i.priceText||"Preis im Shop"):(i.approx?"ca. ":"")+eur(i.price)}</div>
     <div class="qty${i.multi?" multi":""}">${i.multi?"Mehrfach schenkbar":"1×"}</div>
     <div class="desc">${esc(i.desc)}</div>
     ${i.note?`<div class="note">${i.note}</div>`:""}
