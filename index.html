@@ -6,7 +6,7 @@
 <title>Wunschliste – Robert</title>
 <meta name="robots" content="noindex">
 <style>
-:root{--bg:#0b0b0d;--card:#141418;--line:#26262c;--text:#ececf0;--muted:#8d8d98;--hi:#39d98a;--mid:#9a9aa6;--lo:#ff9a4d}
+:root{--bg:#0b0b0d;--card:#141418;--line:#26262c;--text:#ececf0;--muted:#8d8d98;--top:#ff4d6d;--hi:#39d98a;--mid:#9a9aa6;--lo:#ff9a4d}
 *{box-sizing:border-box;margin:0;padding:0}
 body{background:var(--bg);color:var(--text);font:16px/1.5 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;padding:32px 16px 64px}
 main{max-width:760px;margin:0 auto}
@@ -19,9 +19,9 @@ h1{font-size:30px;font-weight:700;letter-spacing:-.02em}
 section{margin-bottom:34px}
 h2{font-size:13px;text-transform:uppercase;letter-spacing:.12em;margin-bottom:12px;display:flex;align-items:center;gap:8px}
 h2::before{content:"";width:8px;height:8px;border-radius:50%;background:currentColor}
-.p0 h2{color:var(--hi)}.p1 h2{color:var(--mid)}.p2 h2{color:var(--lo)}
+.p0 h2{color:var(--top)}.p1 h2{color:var(--hi)}.p2 h2{color:var(--mid)}.p3 h2{color:var(--lo)}
 .item{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px;margin-bottom:10px;display:grid;grid-template-columns:1fr auto;gap:6px 16px;align-items:start}
-.p0 .item{border-left:3px solid var(--hi)}.p1 .item{border-left:3px solid var(--mid)}.p2 .item{border-left:3px solid var(--lo)}
+.p0 .item{border-left:3px solid var(--top)}.p1 .item{border-left:3px solid var(--hi)}.p2 .item{border-left:3px solid var(--mid)}.p3 .item{border-left:3px solid var(--lo)}
 .name{font-weight:600;font-size:16px}
 .pic{grid-column:1/-1;width:100%;max-height:220px;object-fit:contain;background:#fff;border-radius:8px;padding:8px}
 .price{font-weight:600;white-space:nowrap;text-align:right}
@@ -50,23 +50,23 @@ footer{color:var(--muted);font-size:12px;text-align:center;margin-top:40px}
 <script>
 const items=[
 {p:0,name:"WD My Passport SSD 2TB",img:"https://www.tecisoft.com/cdn/shop/products/WD-My-Passport-WDBAGF0020BRD-WESN-2-TB-Portable-Solid-State-Drive-External-Red.jpg?v=1663459067",desc:"Schnelle externe SSD (USB-C, 1050 MB/s) für Clips, Backups und Dateien.",note:"Farbe: <b>Rot</b>",price:325.01,url:"https://amzn.eu/d/042Y1Kev",shop:"Amazon"},
-{p:0,name:"Anker Nano 45W Smart Charger",img:"https://cdn.shopify.com/s/files/1/0493/9834/9974/files/Group_2121236309_77952e43-e3b0-4fc6-9a95-65e7546da92b.png?v=1767609604",desc:"Zweites Handy-Ladegerät mit kleinem Display.",note:"Farbe: <b>Blau</b> oder <b>Schwarz</b>",price:25.99,url:"https://amzn.eu/d/00BZVHrQ",shop:"Amazon"},
 {p:0,name:"Beyerdynamic DT 990 PRO X Limited Black",img:"https://api.beyerdynamic.de/media/catalog/product/d/t/dt-990-pro-x-beyerdynamic-perspective.png?store=en&image-type=image",desc:"Offener Studio-Kopfhörer (48 Ohm), wird ins Mikrofon gesteckt.",price:179.00,url:"https://amzn.eu/d/0eIede0G",shop:"Amazon"},
 {p:0,name:"Rode PodMic USB",img:"https://edge.rode.com//images/page/2124/rode-podmic-usb-packaging-insitu-8192x5464-rgb-1200x630-59bed4d.jpg",desc:"Dynamisches Streaming-Mikrofon mit USB-C und XLR.",note:"Farbe: <b>Schwarz</b>",price:null,url:"https://amzn.eu/d/0byK9YP7",shop:"Amazon"},
 {p:0,name:"Rode PSA1+ Mikrofonarm",img:"https://edge.rode.com//images/page/357/R%C3%98DE-PSA1+-INSITU-HOME-WEBHEADER-1200x630-rgb.jpg",desc:"Schwenkarm für den Schreibtisch, passend zum PodMic.",note:"Farbe: <b>Schwarz</b>",price:null,url:"https://amzn.eu/d/0aDsBw8U",shop:"Amazon"},
 {p:0,name:"Luxafor Busylight",img:"https://luxafor.de/cdn/shop/products/Luxafor-Flag-Busylight-sort-lyser-roedt-paa-computer.jpg?v=1736750479&width=800",desc:"USB-Statuslicht, das leuchtet, wenn Claude Code auf Eingabe wartet.",price:null,url:"https://luxafor.de/products/busylight?variant=50298182205786",shop:"Luxafor"},
-{p:0,name:"Philips OneBlade 360 Face + Body (QP2834/31)",desc:"Wasserdichter Rasierer und Trimmer für Gesicht und Körper, auch unter der Dusche.",note:"Set mit <b>3 Klingen</b> und 4 Trimmaufsätzen",price:51.99,url:"https://amzn.eu/d/0b1pxpuZ",shop:"Amazon",img:"img/oneblade.jpg"},
-{multi:true,p:0,name:"Ersatzklingen für OneBlade (3er-Pack)",desc:"3 Ersatzklingen für den OneBlade 360, für Gesicht und Körper.",note:"Nachbau von Guettsy, nicht Original-Philips",price:27.99,url:"https://amzn.eu/d/0anlcbmI",shop:"Amazon",img:"img/oneblade-klingen.jpg"},
 {multi:true,p:0,name:"Therme Erding – Gutschein mit Sauna",img:"https://cdn-imgix.headout.com/media/images/e29202f86c5fd75ff472f110e2c89b22-233094.jpg?auto=compress&w=768&h=480&fit=min",desc:"Für die Therme mit Saunawelt.",note:"Wichtig: Ticket <b>inkl. VitalTherme &amp; Saunen</b> (textilfreier Bereich), nicht das normale Thermen-Ticket.",price:null,url:"https://www.headout.com/de/therme-erding/therme-erding-tickets-fur-die-therme-und-die-saunas-e-23310",shop:"Headout"},
-{p:1,name:"Pinecil V2",img:"https://pine64.com/wp-content/uploads/2020/11/Pinecilv2-4.jpg",desc:"Kleiner USB-C-Lötkolben fürs Basteln, in Sekunden heiß.",note:"Nur das Original kaufen, kein AliExpress.",price:40,approx:true,url:"https://botland.store/lutownice-kolbowe/25835-pinecil-v2-inteligentna-przenosna-mini-lutownica-oled-risc-v-pine64--850796007840.html",shop:"Botland"},
-{p:1,name:"Anker Nano 65W Ladegerät (3-Port)",img:"https://cdn.shopify.com/s/files/1/0746/3999/9151/files/A2667211-Anker_735_Charger_Nano_II_65W_29674840-669e-4204-8592-fe5b90ac17c2.png?v=1788150407",desc:"Netzteil für den Pinecil, lädt auch Handy und Laptop.",note:"Farbe: <b>Schwarz</b>",price:24.47,url:"https://amzn.eu/d/0iAYZGst",shop:"Amazon"},
-{p:1,name:"Gymreapers Quick Lock Belt",img:"https://de.gymreapers.com/cdn/shop/files/quick-lock-belt-all-black-main.jpg?v=1708638071&width=800",desc:"Gewichthebergürtel für Kniebeugen und Kreuzheben.",note:"Farbe: <b>Schwarz</b> · Größe wird noch nachgereicht",price:31.95,url:"https://de.gymreapers.com/products/quick-locking-belt-black-black",shop:"Gymreapers"},
+{p:1,name:"Anker Nano 45W Smart Charger",img:"https://cdn.shopify.com/s/files/1/0493/9834/9974/files/Group_2121236309_77952e43-e3b0-4fc6-9a95-65e7546da92b.png?v=1767609604",desc:"Zweites Handy-Ladegerät mit kleinem Display.",note:"Farbe: <b>Blau</b> oder <b>Schwarz</b>",price:25.99,url:"https://amzn.eu/d/00BZVHrQ",shop:"Amazon"},
+{p:1,name:"Philips OneBlade 360 Face + Body (QP2834/31)",desc:"Wasserdichter Rasierer und Trimmer für Gesicht und Körper, auch unter der Dusche.",note:"Set mit <b>3 Klingen</b> und 4 Trimmaufsätzen",price:51.99,url:"https://amzn.eu/d/0b1pxpuZ",shop:"Amazon",img:"img/oneblade.jpg"},
+{multi:true,p:1,name:"Ersatzklingen für OneBlade (3er-Pack)",desc:"3 Ersatzklingen für den OneBlade 360, für Gesicht und Körper.",note:"Nachbau von Guettsy, nicht Original-Philips",price:27.99,url:"https://amzn.eu/d/0anlcbmI",shop:"Amazon",img:"img/oneblade-klingen.jpg"},
 {p:1,name:"Gymreapers Wrist Wraps 18\"",img:"https://de.gymreapers.com/cdn/shop/files/wrist-wraps-black-main.jpg?v=1702586698&width=800",desc:"Handgelenkbandagen für Bank- und Schulterdrücken.",note:"Farbe: <b>Schwarz</b> · gleicher Shop wie der Gürtel",price:17.95,url:"https://de.gymreapers.com/products/wrist-wraps",shop:"Gymreapers"},
-{multi:true,p:1,name:"ESN Iso Whey Protein Isolat, 908 g",img:"https://www.esn.com/cdn/shop/files/IsoWhey_908g_MilkChocolateFlavor-_3TCMCPI.jpg?v=1784879774&width=800",desc:"Proteinpulver (Isolat), 30 Shakes.",note:"Sorte: <b>Milk Chocolate</b> · mit Code <b>ESN</b> 22 % günstiger",price:57.90,url:"https://www.esn.com/products/esn-iso-whey-protein?variant=47947636310331&mm_rf=mm_52be226198890b2b55f8",shop:"ESN"},
-{multi:true,p:1,name:"ESN Crank Ultimate, 360 g",img:"https://www.esn.com/cdn/shop/files/Crank_Ultimate_360g_BerryCoconut-iHxAacyt.jpg?v=1754033937&width=800",desc:"Pre-Workout-Booster mit Koffein für schwere Gym-Tage.",note:"Sorte: <b>Blue Raspberry</b> · mit Code <b>ESN</b> 22 % günstiger",price:39.90,url:"https://www.esn.com/products/crank-ultimate?variant=53706507092236&mm_rf=mm_52be226198890b2b55f8",shop:"ESN"},
-{p:2,name:"Flipper Zero",img:"https://flipper.net/cdn/shop/files/product_flipper-zero_front.png?v=1765368572",desc:"Multitool für Funk, NFC, RFID und Infrarot.",price:179.00,url:"https://flipper.net/products/flipper-zero",shop:"Flipper Shop"}
+{p:2,name:"Pinecil V2",img:"https://pine64.com/wp-content/uploads/2020/11/Pinecilv2-4.jpg",desc:"Kleiner USB-C-Lötkolben fürs Basteln, in Sekunden heiß.",note:"Nur das Original kaufen, kein AliExpress.",price:40,approx:true,url:"https://botland.store/lutownice-kolbowe/25835-pinecil-v2-inteligentna-przenosna-mini-lutownica-oled-risc-v-pine64--850796007840.html",shop:"Botland"},
+{p:2,name:"Anker Nano 65W Ladegerät (3-Port)",img:"https://cdn.shopify.com/s/files/1/0746/3999/9151/files/A2667211-Anker_735_Charger_Nano_II_65W_29674840-669e-4204-8592-fe5b90ac17c2.png?v=1788150407",desc:"Netzteil für den Pinecil, lädt auch Handy und Laptop.",note:"Farbe: <b>Schwarz</b>",price:24.47,url:"https://amzn.eu/d/0iAYZGst",shop:"Amazon"},
+{multi:true,p:2,name:"ESN Iso Whey Protein Isolat, 908 g",img:"https://www.esn.com/cdn/shop/files/IsoWhey_908g_MilkChocolateFlavor-_3TCMCPI.jpg?v=1784879774&width=800",desc:"Proteinpulver (Isolat), 30 Shakes.",note:"Sorte: <b>Milk Chocolate</b> · mit Code <b>ESN</b> 22 % günstiger",price:57.90,url:"https://www.esn.com/products/esn-iso-whey-protein?variant=47947636310331&mm_rf=mm_52be226198890b2b55f8",shop:"ESN"},
+{multi:true,p:2,name:"ESN Crank Ultimate, 360 g",img:"https://www.esn.com/cdn/shop/files/Crank_Ultimate_360g_BerryCoconut-iHxAacyt.jpg?v=1754033937&width=800",desc:"Pre-Workout-Booster mit Koffein für schwere Gym-Tage.",note:"Sorte: <b>Blue Raspberry</b> · mit Code <b>ESN</b> 22 % günstiger",price:39.90,url:"https://www.esn.com/products/crank-ultimate?variant=53706507092236&mm_rf=mm_52be226198890b2b55f8",shop:"ESN"},
+{p:3,name:"Gymreapers Quick Lock Belt",img:"https://de.gymreapers.com/cdn/shop/files/quick-lock-belt-all-black-main.jpg?v=1708638071&width=800",desc:"Gewichthebergürtel für Kniebeugen und Kreuzheben.",note:"Farbe: <b>Schwarz</b> · Größe wird noch nachgereicht",price:31.95,url:"https://de.gymreapers.com/products/quick-locking-belt-black-black",shop:"Gymreapers"},
+{p:3,name:"Flipper Zero",img:"https://flipper.net/cdn/shop/files/product_flipper-zero_front.png?v=1765368572",desc:"Multitool für Funk, NFC, RFID und Infrarot.",price:179.00,url:"https://flipper.net/products/flipper-zero",shop:"Flipper Shop"}
 ];
-const labels=["Wichtig","Neutral","Nicht so wichtig"];
+const labels=["Super wichtig","Wichtig","Neutral","Nicht so wichtig"];
 const eur=v=>v.toLocaleString("de-DE",{style:"currency",currency:"EUR"});
 const esc=s=>s.replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
 const list=document.getElementById("list");
@@ -87,7 +87,7 @@ labels.forEach((label,p)=>{
 });
 document.getElementById("stats").innerHTML=
  `<div class="stat"><b>${items.length}</b> Wünsche</div>`+
- `<div class="stat"><b>${items.filter(i=>i.p===0).length}</b> wichtig</div>`;
+ `<div class="stat"><b>${items.filter(i=>i.p===0).length}</b> super wichtig</div>`;
 </script>
 </body>
 </html>
